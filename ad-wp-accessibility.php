@@ -39,6 +39,7 @@
 define( 'A1DACCESS_VERSION', '0.1.0' );
 define( 'A1DACCESS_URL',     plugin_dir_url( __FILE__ ) );
 define( 'A1DACCESS_PATH',    dirname( __FILE__ ) . '/' );
+define( 'A1DACCESS_IMGS',    A1DACCESS_PATH . 'images/' );
 define( 'A1DACCESS_INC',     A1DACCESS_PATH . 'includes/' );
 
 // Include files

@@ -9,6 +9,9 @@ namespace TenUp\A1D_WP_Accessibility\Core;
  *
  * @return void
  */
+
+include_once( __DIR__ . '/admin.php' );
+
 function setup() {
 	$n = function( $function ) {
 		return __NAMESPACE__ . "\\$function";
@@ -16,8 +19,11 @@ function setup() {
 
 	add_action( 'init', $n( 'i18n' ) );
 	add_action( 'init', $n( 'init' ) );
+  add_action( 'admin_menu', $n( 'register_a1daccess_admin' ) );
+  add_action( 'admin_menu', $n( 'a1daccess_settings_init' ) );
 
 	do_action( 'a1daccess_loaded' );
+	do_action( 'register_a1daccess_admin' );
 }
 
 /**
