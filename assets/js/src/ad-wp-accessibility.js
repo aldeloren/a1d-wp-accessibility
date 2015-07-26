@@ -1,0 +1,13 @@
+/**
+ * A1D WP Accessibility
+ * https://a1d.co/accessibility
+ *
+ * Copyright (c) 2015 Anthony DeLorenzo
+ * Licensed under the GPLv2+ license.
+ */
+
+( function( window, undefined ) {
+	'use strict';
+
+
+} )( this );

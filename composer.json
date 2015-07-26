@@ -1,0 +1,27 @@
+{
+	"name": "ad-wp-accessibility",
+	"description": "A WordPress plugin to to encourage content creators to create more accessible content for the differently-abled.",
+	"version": "0.0.1",
+	"type": "wordpress-plugin",
+	"keywords": [],
+	"homepage": "https://a1d.co/accessibility",
+	"license": "GPLv2.0+",
+	"authors": [
+		{
+			"name": "Anthony DeLorenzo",
+			"email": "anthony@a1d.co",
+		"homepage": "a1d.co",
+			"role": "Developer"
+		}
+	],
+    "minimum-stability": "dev",
+	"require": {
+		"php": ">=5.4"
+	},
+    "require-dev": {
+	    "antecedent/patchwork": "1.2.*",
+        "phpunit/phpunit"     : "*@stable",
+	    "brianium/paratest"   : "dev-master",
+        "10up/wp_mock"        : "dev-master"
+    }
+}
