@@ -14,6 +14,20 @@ $accessibility_guidelines = array (
 );
 
 /**
+ * Register plugin administrative styles
+ *
+ * @uses 
+ *
+ * @returns void
+ */
+
+function a1daccess_load_admin_styles() {
+  
+  wp_register_style( 'a1daccess_admin_css', A1DACCESS_URL . '/assets/css/ad-wp-accessibility-admin.css', false, '' ); 
+  wp_enqueue_style( 'a1daccess_admin_css' );
+}
+
+/**
  * Generate available plugin settings
  *
  * @uses register_setting
@@ -198,11 +212,11 @@ function a1daccess_dashboard() {
  *
  */
 
-add_action( 'admin_notices', __NAMESPACE__ . '\a1daccess_notifications', 10, 2 );
-do_action( __NAMESPACE__ . '\a1daccess_notifications', 'hello', 'ma' );
-
-function a1daccess_notifications( $message, $err_class ) {
-
-  echo "<div class='{$err_class}'><p>{$message}</p></div>";
-}
+//add_action( 'admin_notices', __NAMESPACE__ . '\a1daccess_notifications', 10, 2 );
+//do_action( __NAMESPACE__ . '\a1daccess_notifications', 'hello', 'ma' );
+//
+//function a1daccess_notifications( $message, $err_class ) {
+//
+//  echo "<div class='{$err_class}'><p>{$message}</p></div>";
+//}
 

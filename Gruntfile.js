@@ -38,12 +38,12 @@ module.exports = function( grunt ) {
 						' * Licensed GPLv2+' +
 						' */\n',
 					mangle: {
-						except: ['jQuery']
-					}
+            except: ['jQuery']
+          }
 				}
 			}
 		},
-		
+
 		sass:   {
 			options: {
 				precision: 2,
@@ -51,6 +51,7 @@ module.exports = function( grunt ) {
 			},
 			all: {
 				files: {
+					'assets/css/ad-wp-accessibility-admin.css': 'assets/css/sass/ad-wp-accessibility-admin.scss',
 					'assets/css/ad-wp-accessibility.css': 'assets/css/sass/ad-wp-accessibility.scss'
 				}
 			}
@@ -98,7 +99,7 @@ module.exports = function( grunt ) {
 			},
 			styles: { 
 				files: ['assets/css/sass/**/*.scss'],
-				tasks: ['sass', 'autoprefixer', 'cssmin'],
+				tasks: ['sass', 'cssmin'],
 				options: {
 					debounceDelay: 500
 				}

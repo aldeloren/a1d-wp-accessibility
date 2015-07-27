@@ -1,0 +1,11 @@
+{
+	"version": 3,
+	"file": "ad-wp-accessibility-admin.css",
+	"sources": [
+		"sass/ad-wp-accessibility-admin.scss",
+		"sass/ad-wp-accessibility-common.scss"
+	],
+	"sourcesContent": [],
+	"mappings": "ACAA,sBAAsB,CAAA;EACpB,KAAK,EAAE,KAAM,GADQ;;ADEvB,wBAAwB,CAAA;EACtB,KAAK,EAAE,IAAK,GADW",
+	"names": []
+}
