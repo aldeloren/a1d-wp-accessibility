@@ -1,7 +1,11 @@
+.a1daccess_inline > li {
+  display: inline-block; }
+
 .a1daccess_float_right {
   float: right; }
 
-.a1daccess_metabox_admin {
-  width: 100%; }
+#a1daccess_metabox_admin {
+  width: 100%;
+  overflow: auto; }
 
 /*# sourceMappingURL=ad-wp-accessibility-admin.css.map */

@@ -44,7 +44,64 @@ function a1daccess_metabox_callback( $post ) {
   include_once( $page_post_template );
 }
 
-//function a1daccess_metabox_save_data( $post_id ) {
-//  
-//  if ( !isset
-//}
+function a1daccess_metabox_save_data( $post_id ) {
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+add_action( 'admin_footer', __NAMESPACE__ . '\a1daccess_metabox_ajax_js' ); 
+
+/**
+ * Build javascript call to admin-ajax.php
+ *
+ * ajaxurl is defined by wordpress
+ *
+ * @return void
+ */
+
+function a1daccess_metabox_ajax_js() { ?>
+  <script type="text/javascript">
+    jQuery(document).ready(function($){
+      
+      var data = {
+        'action': 'a1daccess_metabox_update'
+      };
+
+      jQuery.post(ajaxurl, data, function(response){
+        console.log('server response: ' + response);
+      })
+    }); 
+  </script>
+<?php
+}
+
+
+/**
+ * Check page/post content against idi accessibility API
+ *
+ * @return REST response 
+ */
+
+add_action( 'wp_ajax_a1daccess_metabox_update', __NAMESPACE__ . '\a1daccess_metabox_ajax_response' );
+
+function a1daccess_metabox_ajax_response() {
+
+  echo 'this worked, response received';
+  wp_die();
+}

@@ -6,6 +6,6 @@
 		"sass/ad-wp-accessibility-common.scss"
 	],
 	"sourcesContent": [],
-	"mappings": "ACAA,sBAAsB,CAAA;EACpB,KAAK,EAAE,KAAM,GADQ;;ADEvB,wBAAwB,CAAA;EACtB,KAAK,EAAE,IAAK,GADW",
+	"mappings": "ACAoB,iBAAiB,GAAG,EAAE,CAApB;EACpB,OAAO,EAAE,YAAa,GADD;;AAIvB,sBAAsB,CAAA;EACpB,KAAK,EAAE,KAAM,GADQ;;ADFvB,wBAAwB,CAAA;EACtB,KAAK,EAAE,IAAK;EACZ,QAAQ,EAAE,IAAK,GAFQ",
 	"names": []
 }
