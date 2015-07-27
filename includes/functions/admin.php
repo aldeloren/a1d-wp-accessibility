@@ -161,10 +161,7 @@ function a1daccess_accessibility_options_validation ( $input ){
   if ( $input['api_id'] ) {
     if ( true === is_idi_app_id_valid( $input['api_id'] ) ){
       $new_input['api_id'] = $input['api_id'];
-    } else {
-      //TODO add notification(s), do not rely on frontend validation.
-      $new_input['api_id'] = $input['api_id'];
-    }
+    } 
   }
   return $new_input;
 }
@@ -212,11 +209,11 @@ function a1daccess_dashboard() {
  *
  */
 
-//add_action( 'admin_notices', __NAMESPACE__ . '\a1daccess_notifications', 10, 2 );
-//do_action( __NAMESPACE__ . '\a1daccess_notifications', 'hello', 'ma' );
-//
-//function a1daccess_notifications( $message, $err_class ) {
-//
-//  echo "<div class='{$err_class}'><p>{$message}</p></div>";
-//}
 
+function a1daccess_notifications() {
+
+  $options = get_option( 'a1daccess_accessibility_options' );
+  if ( false === is_idi_app_id_valid( $options['api_id'] ) ) {
+    echo "<div class='error'><p>Your API ID is invalid. Please register at the following page <a href='http://achecker.ca/register.php'>http://achecker.ca/register.php</a> to retreive a valid API ID.</p></div>";
+  } 
+}

@@ -24,6 +24,7 @@ function setup() {
 	add_action( 'init', $n( 'init' ) );
   add_action( 'admin_menu', $n( 'register_a1daccess_admin' ) );
   add_action( 'admin_menu', $n( 'a1daccess_settings_init' ) );
+  add_action( 'admin_notices', __NAMESPACE__ . '\a1daccess_notifications', 10 );
   add_action( 'admin_enqueue_scripts', $n('a1daccess_load_admin_styles' ) );
 
 	do_action( 'a1daccess_loaded' );

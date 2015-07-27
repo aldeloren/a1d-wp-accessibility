@@ -32,15 +32,19 @@ add_action( 'add_meta_boxes', __NAMESPACE__ . '\a1daccess_add_metabox' );
  * Generate metabox structure and contents
  *
  * @uses wp_nonce_field
- * @uses stuff
+ * @uses get_post_meta 
  *
  */
 
 function a1daccess_metabox_callback( $post ) {
 
   wp_nonce_field( 'a1daccess_metabox_save_data', 'a1daccess_metabox_nonce' );
-
   $values = get_post_meta( $post->ID, '_a1daccess_metabox_data', true );
   $page_post_template = A1DACCESS_INC . 'templates/page-post-meta.php';
   include_once( $page_post_template );
 }
+
+//function a1daccess_metabox_save_data( $post_id ) {
+//  
+//  if ( !isset
+//}
