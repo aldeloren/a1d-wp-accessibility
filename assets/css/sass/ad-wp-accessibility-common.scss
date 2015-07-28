@@ -5,3 +5,12 @@
 .a1daccess_float_right{
   float: right;
 }
+
+.a1daccess_loader {
+  background: url('/wp-includes/js/thickbox/loadingAnimation.gif') no-repeat;
+  opacity: .7;
+  width: 60%;
+  height: 2em;
+  margin: 0 auto; 
+  text-indent: -999em;
+}

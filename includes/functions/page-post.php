@@ -56,6 +56,7 @@ add_action( 'admin_footer', __NAMESPACE__ . '\a1daccess_metabox_ajax_js' );
  * Build javascript call to admin-ajax.php
  *
  * ajaxurl is defined by wordpress
+ * keep script inline to reduce HTTP requests
  *
  * @return void
  */
@@ -64,15 +65,79 @@ function a1daccess_metabox_ajax_js() {
   global $post;  ?>
   <script type="text/javascript">
     jQuery(document).ready(function($){
-      
+      var loaderID = '#a1daccess_load_loader';
+
       var data = {
         'action': 'a1daccess_metabox_update',
         'post_id': '<?php echo $post->ID; ?>'
       };
 
       jQuery.post(ajaxurl, data, function(response){
-        console.log('server response: ' + response);
-      })
+        displayRecommendations(response);
+        hideLoader(loaderID);
+      });
+
+      function displayRecommendations(jsonString){
+        var json = jQuery.parseJSON(jsonString);
+        if(!json.status || json.status != 'error'){
+          var errorHeader = '#a1daccess_metabox_errors',
+              potentialHeader = '#a1daccess_metabox_likely_problems',
+              likelyPotentialHeader = '#a1daccess_metabox_likely_potential_problems',
+              sortedJson = sortReccomendations(json);
+  
+          $(errorHeader).text('Errors: ' + sortedJson.errors.length);
+          $(potentialHeader).text('Potential Problems: ' + sortedJson.likelyProblems.length)
+          $(likelyPotentialHeader).text('Likely Potential Problems: ' + sortedJson.potentialProblems.length)
+          $('#a1daccess_metabox_inner').show();
+        }
+      }
+
+      function sortReccomendations(recommendations){
+        var sortedRecommendations = {
+          errors:[],
+          likelyProblems: [],
+          potentialProblems: []
+        };
+
+        $.each(recommendations.results.result, function(key, val){
+          if(val.resultType == "Error"){
+            sortedRecommendations.errors.push($(this));
+          }
+          if(val.resultType == "Likely Problem"){
+            sortedRecommendations.likelyProblems.push($(this));
+          }
+          if(val.resultType == "Potential Problem"){
+            sortedRecommendations.potentialProblems.push($(this));
+          } 
+        })
+        return sortedRecommendations;
+      }
+
+      function loadRecommendations(type){
+        
+
+      }
+
+      function switchTab(tab){
+        var tabContainer = tab + '_container';
+        $('#a1daccess_metabox_issue_container div').hide();
+        $(tabContainer).show();
+        $('.a1daccess_tabs li').removeClass('active');
+        $(tab).addClass('active');
+      }
+
+      function showLoader(id){
+        $(id).show()
+      }
+
+      function hideLoader(id){
+        $(id).hide()
+      }
+
+      $('.a1daccess_tabs li').click(function(){
+        var tabID = '#' + $(this).attr('id');
+        switchTab(tabID);
+      });
     }); 
   </script>
 <?php

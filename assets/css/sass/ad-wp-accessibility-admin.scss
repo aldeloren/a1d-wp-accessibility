@@ -1,7 +1,47 @@
 @import 'ad-wp-accessibility-common';
 
+$border-style: 1px solid #d3d3d3;
+
 #a1daccess_metabox_admin{
   width: 100%;
   overflow: auto;
 }
 
+#a1daccess_metabox_inner{
+  display: none; 
+  clear: both;
+}
+
+#a1daccess_metabox_issue_container{
+  width: 98%;
+  min-height: 200px;
+  border: $border-style;
+  margin-top: -3px;
+  div {
+    display: none;
+    padding: .5em;
+    &.active{
+      display: block;
+    }
+  }
+}
+
+.a1daccess_tabs{
+  margin: 0;
+  & > li{
+    background: #ededed;
+    border-top: $border-style;
+    border-right: $border-style;
+    border-bottom: 1px solid #fff;
+    border-left: $border-style;
+    margin: .2em .4em;
+    padding: .4em;
+    cursor: pointer;
+    border-radius: 0 1em 0 0;
+  }
+  .active{
+      background: #fff;
+      cursor: auto;
+      text-decoration: underline;
+  }
+}

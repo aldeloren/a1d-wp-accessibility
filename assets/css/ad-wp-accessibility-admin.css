@@ -4,8 +4,48 @@
 .a1daccess_float_right {
   float: right; }
 
+.a1daccess_loader {
+  background: url("/wp-includes/js/thickbox/loadingAnimation.gif") no-repeat;
+  opacity: .7;
+  width: 60%;
+  height: 2em;
+  margin: 0 auto;
+  text-indent: -999em; }
+
 #a1daccess_metabox_admin {
   width: 100%;
   overflow: auto; }
+
+#a1daccess_metabox_inner {
+  display: none;
+  clear: both; }
+
+#a1daccess_metabox_issue_container {
+  width: 98%;
+  min-height: 200px;
+  border: 1px solid #d3d3d3;
+  margin-top: -3px; }
+  #a1daccess_metabox_issue_container div {
+    display: none;
+    padding: .5em; }
+    #a1daccess_metabox_issue_container div.active {
+      display: block; }
+
+.a1daccess_tabs {
+  margin: 0; }
+  .a1daccess_tabs > li {
+    background: #ededed;
+    border-top: 1px solid #d3d3d3;
+    border-right: 1px solid #d3d3d3;
+    border-bottom: 1px solid #fff;
+    border-left: 1px solid #d3d3d3;
+    margin: 0.2em 0.4em;
+    padding: .4em;
+    cursor: pointer;
+    border-radius: 0 1em 0 0; }
+  .a1daccess_tabs .active {
+    background: #fff;
+    cursor: auto;
+    text-decoration: underline; }
 
 /*# sourceMappingURL=ad-wp-accessibility-admin.css.map */
