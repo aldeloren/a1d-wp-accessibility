@@ -90,7 +90,7 @@ module.exports = function( grunt ) {
 				ext: '.min.css'
 			}
 		},
-		watch:  {
+		watch:  { 
 			livereload: {
 				files: ['assets/css/*.css'],
 				options: {
@@ -182,8 +182,7 @@ module.exports = function( grunt ) {
 
 	// Register tasks
 	
-	grunt.registerTask( 'css', ['sass', 'postcss', 'cssmin'] );
-	
+	grunt.registerTask( 'css', ['sass', 'postcss', 'cssmin'] );	
 
 	grunt.registerTask( 'js', ['jshint', 'concat', 'uglify'] );
 
@@ -192,6 +191,8 @@ module.exports = function( grunt ) {
 	grunt.registerTask( 'build', ['default', 'clean', 'copy', 'compress'] );
 
 	grunt.registerTask( 'test', ['phpunit', 'qunit'] );
+
+  grunt.registerTask('default', ['shell']);
 
 	grunt.util.linefeed = '\n';
 };
