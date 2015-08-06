@@ -4,7 +4,7 @@
 Tags: 
 **Requires at least:** 4.1.1  
 **Tested up to:**      4.1.1  
-**Stable tag:**        0.1.0  
+**Stable tag:**        0.1.1  
 **License:**           GPLv2 or later  
 **License URI:**       http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -28,6 +28,9 @@ A WordPress plugin to to encourage content creators to create more accessible co
 
 
 ## Changelog ##
+
+### 0.1.1 ###
+* Minor fix to administration panel
 
 ### 0.1.0 ###
 * First release
