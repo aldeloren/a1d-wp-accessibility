@@ -1,0 +1,10 @@
+{
+	"version": 3,
+	"file": "ad-wp-accessibility.css",
+	"sources": [
+		"sass/ad-wp-accessibility.scss"
+	],
+	"sourcesContent": [],
+	"mappings": "AAAA;;;;;;GAMG",
+	"names": []
+}

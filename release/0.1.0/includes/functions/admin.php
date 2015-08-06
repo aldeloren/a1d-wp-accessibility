@@ -107,7 +107,7 @@ function a1daccess_settings_api_id() {
   if ( array_key_exists( 'api_id', $options ) ) {
     $api_id_option = "<input id='a1daccess_api_id' type='text' name='a1daccess_accessibility_options[api_id]' value='{$options['api_id']}' required pattern='[a-fA-F0-9]{40}$' title='Please enter a valid 40 character API ID'>";
   } else {
-    $api_id_option = "<input id='a1daccess_api_id' type='text' name='a1daccess_accessibility_options[api_id]' value='' required pattern='[a-fA-F0-9]{40}$' title='Please enter a valid 40 character API ID'>";
+    $api_id_option = "<input id='a1daccess_api_id' type='text' name='a1daccess_accessibility_options[api_id]' value='' required pattern='[a-fA-F0-9]{40}$'> title='Please enter a valid 40 character API ID'";
   }
   echo $api_id_option;
 }
