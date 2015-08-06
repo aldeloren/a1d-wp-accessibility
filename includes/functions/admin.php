@@ -16,67 +16,69 @@ $accessibility_guidelines = array (
 /**
  * Register plugin administrative styles
  *
- * @uses 
+ * @uses wp_register_style()
+ * @uses wp_enqueue_style()
  *
  * @returns void
  */
 
 function a1daccess_load_admin_styles() {
-  
-  wp_register_style( 'a1daccess_admin_css', A1DACCESS_URL . '/assets/css/ad-wp-accessibility-admin.css', false, '' ); 
+
+  wp_register_style( 'a1daccess_admin_css', A1DACCESS_URL . '/assets/css/ad-wp-accessibility-admin.css', false, '' );
   wp_enqueue_style( 'a1daccess_admin_css' );
 }
 
 /**
  * Generate available plugin settings
  *
- * @uses register_setting
- * @uses add_settings_section 
- * @uses add_settings_field
+ * @uses register_setting()
+ * @uses add_settings_section()
+ * @uses add_settings_field()
  *
  * @return void
  */
 
 function a1daccess_settings_init() {
 
-   register_setting ( 
-    'a1daccess_accessibility_options', 
-    'a1daccess_accessibility_options', 
-    __NAMESPACE__ . '\a1daccess_accessibility_options_validation' 
+   register_setting (
+    'a1daccess_accessibility_options',
+    'a1daccess_accessibility_options',
+    __NAMESPACE__ . '\a1daccess_accessibility_options_validation'
   );
-  add_settings_section ( 
-    'a1daccess_accessibility_settings', 
-    'Accessibility Settings', 
-    __NAMESPACE__ . '\a1daccess_settings_info', 
+  add_settings_section (
+    'a1daccess_accessibility_settings',
+    'Accessibility Settings',
+    __NAMESPACE__ . '\a1daccess_settings_info',
     'a1d-accessibility'
-  ); 
+  );
   add_settings_field (
     'a1daccess_api_id',
-    'API ID', 
-    __NAMESPACE__ . '\a1daccess_settings_api_id', 
-    'a1d-accessibility', 
+    'API ID',
+    __NAMESPACE__ . '\a1daccess_settings_api_id',
+    'a1d-accessibility',
     'a1daccess_accessibility_settings'
   );
-  // Allow users to choose from a number of accessibility guidelines available 
+  // Allow users to choose from a number of accessibility guidelines available
   // from the IDI Web Accessibility Checker API (http://achecker.ca/documentation/web_service_api.php)
-  add_settings_field ( 
-    'a1daccess_validation_guideline_options', 
-    'Validation Guideline', 
-    __NAMESPACE__ . '\a1daccess_settings_validation_options', 
-    'a1d-accessibility', 
-    'a1daccess_accessibility_settings' 
+  add_settings_field (
+    'a1daccess_validation_guideline_options',
+    'Validation Guideline',
+    __NAMESPACE__ . '\a1daccess_settings_validation_options',
+    'a1d-accessibility',
+    'a1daccess_accessibility_settings'
   );
 }
 
 /**
  * Display plugin info and helper text
  *
+ * @uses get_option()
  *
  * @return string html
  */
 
 function a1daccess_settings_info() {
-  
+
   $options = get_option( 'a1daccess_accessibility_options' );
   $info = '';
   $is_registered = false;
@@ -93,7 +95,6 @@ function a1daccess_settings_info() {
   echo $info;
 }
 
-
 /**
  * Accept API ID
  *
@@ -101,12 +102,12 @@ function a1daccess_settings_info() {
  */
 
 function a1daccess_settings_api_id() {
-  
+
   $options = get_option( 'a1daccess_accessibility_options' );
   if ( array_key_exists( 'api_id', $options ) ) {
-    $api_id_option = "<input id='a1daccess_api_id' type='text' name='a1daccess_accessibility_options[api_id]' value='{$options['api_id']}' required pattern='[a-fA-F0-9]{40}$' title='Please enter a valid 40 character API ID'>"; 
+    $api_id_option = "<input id='a1daccess_api_id' type='text' name='a1daccess_accessibility_options[api_id]' value='{$options['api_id']}' required pattern='[a-fA-F0-9]{40}$' title='Please enter a valid 40 character API ID'>";
   } else {
-    $api_id_option = "<input id='a1daccess_api_id' type='text' name='a1daccess_accessibility_options[api_id]' value='' required pattern='[a-fA-F0-9]{40}$'> title='Please enter a valid 40 character API ID'"; 
+    $api_id_option = "<input id='a1daccess_api_id' type='text' name='a1daccess_accessibility_options[api_id]' value='' required pattern='[a-fA-F0-9]{40}$'> title='Please enter a valid 40 character API ID'";
   }
   echo $api_id_option;
 }
@@ -114,18 +115,20 @@ function a1daccess_settings_api_id() {
 /**
  * Generate available accessibility guidelines values
  *
+ * @uses get_option()
+ *
  * @return string html select input for setting form submission
  */
 
-function a1daccess_settings_validation_options() { 
+function a1daccess_settings_validation_options() {
 
   global $accessibility_guidelines;
   $options = get_option( 'a1daccess_accessibility_options' );
 
   if ( array_key_exists( 'guideline', $options ) ) {
-    $guideline_options = "<select id='a1daccess_accessibility_options_guideline' name='a1daccess_accessibility_options[guideline]' value='{$options['guideline']}'>"; 
+    $guideline_options = "<select id='a1daccess_accessibility_options_guideline' name='a1daccess_accessibility_options[guideline]' value='{$options['guideline']}'>";
   } else {
-    $guideline_options = "<select id='a1daccess_accessibility_options_guideline' name='a1daccess_accessibility_options[guideline]' value=''>"; 
+    $guideline_options = "<select id='a1daccess_accessibility_options_guideline' name='a1daccess_accessibility_options[guideline]' value=''>";
   }
   foreach ( $accessibility_guidelines as $guideline ) {
     if ( $options['guideline'] === $guideline ) {
@@ -133,14 +136,14 @@ function a1daccess_settings_validation_options() {
     } else {
       $guideline_options .= "<option value='{$guideline}'>{$guideline}</option>";
     }
-  } 
+  }
   $guideline_options .= "</select>";
   echo $guideline_options;
 }
 
 /**
   * Validate settings input
-  * 
+  *
   * @returns string validated input
   */
 
@@ -152,7 +155,7 @@ function a1daccess_accessibility_options_validation ( $input ){
   if( $input['guideline'] ){
     if ( in_array ( $input['guideline'], $accessibility_guidelines ) ) {
       //$new_input['guideline'] = $accessibility_guidelines[0] ;
-      $new_input['guideline'] = $input['guideline']; 
+      $new_input['guideline'] = $input['guideline'];
     } else {
       $new_input['guideline'] = $accessibility_guidelines[0];
     }
@@ -161,13 +164,13 @@ function a1daccess_accessibility_options_validation ( $input ){
   if ( $input['api_id'] ) {
     if ( true === is_idi_app_id_valid( $input['api_id'] ) ){
       $new_input['api_id'] = $input['api_id'];
-    } 
+    }
   }
   return $new_input;
 }
 
 /**
- * Check input to determine if string is valid 
+ * Check input to determine if string is valid
  *
  * @returns bool
  */
@@ -177,22 +180,22 @@ function is_idi_app_id_valid ( $api_id ) {
   $api_id = trim( $api_id );
   $validity = false;
   if ( ctype_alnum( $api_id ) && 40 === strlen( $api_id ) ) {
-    $validity = true; 
+    $validity = true;
   }
   return $validity;
 }
 
 /**
  * Generate Admin dashboard
- * 
- * @uses add_options_page 
+ *
+ * @uses add_options_page()
  *
  * @return void
  */
 
 function register_a1daccess_admin() {
 
-  add_menu_page( 'A1D Accessibility', 'Accessibility', 'manage_options', 'a1d-accessibility', '\TenUp\A1D_WP_Accessibility\Core\a1daccess_dashboard', 'dashicons-universal-access', 61 ); 
+  add_menu_page( 'A1D Accessibility', 'Accessibility', 'manage_options', 'a1d-accessibility', '\TenUp\A1D_WP_Accessibility\Core\a1daccess_dashboard', 'dashicons-universal-access', 61 );
 }
 
 function a1daccess_dashboard() {
@@ -202,18 +205,16 @@ function a1daccess_dashboard() {
 }
 
 /**
- * Notices
  * Display meaningful messages to users about failed input or validation
- * 
- * @uses manage_options
+ *
+ * @uses manage_options()
  *
  */
-
 
 function a1daccess_notifications() {
 
   $options = get_option( 'a1daccess_accessibility_options' );
   if ( false === is_idi_app_id_valid( $options['api_id'] ) ) {
     echo "<div class='error'><p>Your API ID is invalid. Please register at the following page <a href='http://achecker.ca/register.php'>http://achecker.ca/register.php</a> to retreive a valid API ID.</p></div>";
-  } 
+  }
 }

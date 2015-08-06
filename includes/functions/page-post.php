@@ -5,7 +5,7 @@ namespace TenUp\A1D_WP_Accessibility\Core;
 /**
  * Add metabox(es) to pages and posts
  *
- * @uses add_meta_box
+ * @uses add_meta_box()
  *
  * @returns void
  */
@@ -33,8 +33,8 @@ add_action( 'add_meta_boxes', __NAMESPACE__ . '\a1daccess_add_metabox' );
 /**
  * Generate metabox structure and contents
  *
- * @uses wp_nonce_field
- * @uses get_post_meta
+ * @uses wp_nonce_field()
+ * @uses get_post_meta()
  *
  */
 
@@ -187,7 +187,7 @@ function a1daccess_metabox_ajax_response() {
  * TODO
  * Find a new API that can accept text, or develop own following standards
  *
- * @uses get_post_status, needed as current API requires URI to validate against
+ * @uses get_post_status(), needed as current API requires URI to validate against
  *
  * @returns reccommendations or error and status code(s)
  */
@@ -216,9 +216,9 @@ function a1daccess_retrieve_accessibility_reccommendations ( $api_id, $guideline
 /**
  * Retreive the accessibility reccommendations from service
  *
- * @uses wp_remote_get (abstraction of WP_http class) to ensure that most systems are supported
- * @uses wp_remote_retrieve_body
- * @uses is_wp_error
+ * @uses wp_remote_get() (abstraction of WP_http class) to ensure that most systems are supported
+ * @uses wp_remote_retrieve_body()
+ * @uses is_wp_error()
  *
  * @returns object restful validation response
  */

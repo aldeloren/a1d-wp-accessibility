@@ -42,6 +42,7 @@ function setup() {
  *
  * @return void
  */
+
 function i18n() {
 	$locale = apply_filters( 'plugin_locale', get_locale(), 'a1daccess' );
 	load_textdomain( 'a1daccess', WP_LANG_DIR . '/a1daccess/a1daccess-' . $locale . '.mo' );
