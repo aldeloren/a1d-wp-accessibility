@@ -192,7 +192,5 @@ module.exports = function( grunt ) {
 
 	grunt.registerTask( 'test', ['phpunit', 'qunit'] );
 
-  grunt.registerTask('default', ['shell']);
-
 	grunt.util.linefeed = '\n';
 };

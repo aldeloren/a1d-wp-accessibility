@@ -18,12 +18,15 @@ $border-style: 1px solid #d3d3d3;
   border: $border-style;
   margin-top: -3px;
   div {
-    display: none;
     padding: .5em;
     &.active{
       display: block;
     }
   }
+}
+
+.a1daccess_metabox_issue{
+  display: none;
 }
 
 .a1daccess_tabs{
@@ -43,5 +46,22 @@ $border-style: 1px solid #d3d3d3;
       background: #fff;
       cursor: auto;
       text-decoration: underline;
+  }
+}
+
+.a1daccess_metabox_formatted_entry{
+  width: 100%;
+  overflow: auto;
+  border-bottom: 1px solid #e0e0e0; 
+  .a1daccess_metabox_formatted_line{
+    width: 20%;
+    float: left;
+  }
+  .a1daccess_metabox_right_inner{
+    width: 70%;
+    float: right;
+    p{
+      margin: 0;
+    }
   }
 }

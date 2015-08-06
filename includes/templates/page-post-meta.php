@@ -15,9 +15,9 @@
         <li id="a1daccess_metabox_likely_potential_problems"></li>
       </ul>
       <div id="a1daccess_metabox_issue_container">
-        <div id="a1daccess_metabox_errors_container" class="active">e</div>
-        <div id="a1daccess_metabox_likely_problems_container">lp</div>
-        <div id="a1daccess_metabox_likely_potential_problems_container">lpp</div>
+        <div id="a1daccess_metabox_errors_container" class="active a1daccess_metabox_issue"></div>
+        <div id="a1daccess_metabox_likely_problems_container" class="a1daccess_metabox_issue"></div>
+        <div id="a1daccess_metabox_likely_potential_problems_container" class="a1daccess_metabox_issue">lpp</div>
       </div>
   </div>
   <input type="hidden" name="_a1daccess_metabox_data[last_updated]" value="<?php echo 4; ?>"> 
