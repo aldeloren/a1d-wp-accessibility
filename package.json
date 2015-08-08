@@ -2,7 +2,7 @@
   "name": "ad-wp-accessibility",
   "title": "A1D WP Accessibility",
   "description": "A WordPress plugin to to encourage content creators to create more accessible content for the differently-abled.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "homepage": "https://a1d.co/accessibility",
   "repository": {
     "type": "git",
