@@ -144,7 +144,7 @@ function a1daccess_settings_validation_options() {
 /**
   * Validate settings input
   *
-  * @returns string validated input
+  * @returns array validated input
   */
 
 function a1daccess_accessibility_options_validation ( $input ){
@@ -152,9 +152,8 @@ function a1daccess_accessibility_options_validation ( $input ){
   global $accessibility_guidelines;
   $new_input = array ();
 
-  if( $input['guideline'] ){
+  if ( $input['guideline'] ){
     if ( in_array ( $input['guideline'], $accessibility_guidelines ) ) {
-      //$new_input['guideline'] = $accessibility_guidelines[0] ;
       $new_input['guideline'] = $input['guideline'];
     } else {
       $new_input['guideline'] = $accessibility_guidelines[0];
